@@ -1,0 +1,145 @@
+<!-- ===== Announcement Bar (no outer gaps, inline arrows) ===== -->
+<style>
+  /* kill default gaps that might come from theme */
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .pk-ann-bar,
+  .pk-ann-bar * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pk-ann-bar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100vw; /* full bleed */
+    background: #dc262a;
+    color: #fff;
+    font: 15px/38px "Segoe UI", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .pk-ann-arrow {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+  }
+  .pk-ann-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .pk-ann-text {
+    white-space: nowrap;
+    padding: 0 12px; /* small inner gap only */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .pk-ann-text.fade-out {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  @media (max-width: 480px) {
+    .pk-ann-bar {
+      font-size: 14px;
+      line-height: 34px;
+    }
+    .pk-ann-arrow {
+      width: 28px;
+      height: 28px;
+      font-size: 16px;
+    }
+    .pk-ann-text {
+      padding: 0 8px;
+    }
+  }
+</style>
+
+<div class="pk-ann-bar" id="pkAnnBar" role="region" aria-label="Announcements">
+  <button class="pk-ann-arrow" id="pkAnnPrev" aria-label="Previous">
+    &lt;
+  </button>
+  <span class="pk-ann-text" id="pkAnnText"></span>
+  <button class="pk-ann-arrow" id="pkAnnNext" aria-label="Next">&gt;</button>
+</div>
+
+<script>
+  (function () {
+    const msgs = [
+      "Get 10% Extra Discount on Your First Prepaid Order",
+      "Free Delivery Available All Over India",
+      "Cash On Delivery (COD) Available",
+      "Visit Our Website for More Offers",
+    ];
+    const textEl = document.getElementById("pkAnnText");
+    const prevBtn = document.getElementById("pkAnnPrev");
+    const nextBtn = document.getElementById("pkAnnNext");
+    const bar = document.getElementById("pkAnnBar");
+
+    let i = 0,
+      timer;
+    const INTERVAL = 4000;
+
+    function show(idx) {
+      textEl.classList.add("fade-out");
+      setTimeout(() => {
+        textEl.textContent = msgs[idx];
+        textEl.classList.remove("fade-out");
+      }, 180);
+    }
+    function next() {
+      i = (i + 1) % msgs.length;
+      show(i);
+    }
+    function prev() {
+      i = (i - 1 + msgs.length) % msgs.length;
+      show(i);
+    }
+
+    function start() {
+      stop();
+      timer = setInterval(next, INTERVAL);
+    }
+    function stop() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    prevBtn.addEventListener("click", () => {
+      prev();
+      start();
+    });
+    nextBtn.addEventListener("click", () => {
+      next();
+      start();
+    });
+
+    bar.addEventListener("mouseenter", stop);
+    bar.addEventListener("mouseleave", start);
+    bar.addEventListener("focusin", stop);
+    bar.addEventListener("focusout", start);
+
+    show(i);
+    start();
+  })();
+</script>
