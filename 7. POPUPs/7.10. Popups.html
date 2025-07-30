@@ -1,0 +1,298 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Floating Animation - reduced intensity */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  /* Overlay */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+  }
+
+  .popup {
+    width: 90%;
+    max-width: 650px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .popup.active {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .popup-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    text-align: center;
+    position: relative;
+  }
+
+  .popup-icon {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-50%);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .popup-icon svg {
+    width: 40px;
+    height: 40px;
+    fill: #667eea;
+  }
+
+  .popup-content {
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #2d3748;
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  p {
+    color: #718096;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+
+  .cta-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+  }
+
+  /* Clear and visible close button */
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    background: #764ba2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+
+  .close-btn:hover {
+    background: #5a3680;
+  }
+
+  .close-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+  }
+
+  .confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .popup-content {
+      padding: 30px 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    .popup-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    .popup-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+</style>
+
+<div class="popup-overlay" id="popup">
+  <div class="popup" id="popupContent">
+    <div class="popup-header">
+      <div class="popup-icon" aria-label="Success icon" role="img">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="popup-content">
+      <h2>Exclusive Offer Just For You!</h2>
+      <p>
+        Get 20% off your first purchase when you subscribe to our newsletter.
+        Join 10,000+ happy customers who receive our weekly updates.
+      </p>
+      <button class="cta-button" onclick="window.location.href='#'">
+        Claim Your Discount
+      </button>
+    </div>
+
+    <div
+      class="close-btn"
+      id="closePopup"
+      aria-label="Close popup"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+        />
+      </svg>
+    </div>
+
+    <div class="confetti" id="confetti"></div>
+  </div>
+</div>
+
+<script>
+  // Show popup with animation
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      const popup = document.getElementById("popup");
+      const content = document.getElementById("popupContent");
+
+      popup.style.display = "flex";
+      setTimeout(() => {
+        content.classList.add("active");
+      }, 100);
+
+      // Create confetti elements
+      createConfetti();
+    }, 2000);
+  });
+
+  // Close popup
+  document.getElementById("closePopup").addEventListener("click", () => {
+    const popup = document.getElementById("popup");
+    const content = document.getElementById("popupContent");
+
+    content.classList.remove("active");
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 300);
+  });
+
+  // Optional: close popup on ESC key press
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const popup = document.getElementById("popup");
+      const content = document.getElementById("popupContent");
+      if (popup.style.display === "flex") {
+        content.classList.remove("active");
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 300);
+      }
+    }
+  });
+
+  // Confetti creation function
+  function createConfetti() {
+    const confettiContainer = document.getElementById("confetti");
+    const colors = ["#667eea", "#764ba2", "#6B46C1", "#553C9A", "#9F7AEA"];
+
+    // Clear existing confetti if any
+    confettiContainer.innerHTML = "";
+
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement("div");
+      confetti.style.position = "absolute";
+      confetti.style.width = `${Math.random() * 10 + 5}px`;
+      confetti.style.height = `${Math.random() * 10 + 5}px`;
+      confetti.style.backgroundColor =
+        colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.top = `${Math.random() * 100}%`;
+      confetti.style.opacity = Math.random();
+      confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+      confetti.style.animation = `float ${
+        Math.random() * 3 + 2
+      }s infinite ease-in-out`;
+      confetti.style.animationDelay = `${Math.random() * 2}s`;
+      confettiContainer.appendChild(confetti);
+    }
+  }
+</script>
