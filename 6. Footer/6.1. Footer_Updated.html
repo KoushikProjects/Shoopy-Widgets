@@ -1,0 +1,443 @@
+<!-- ====== FOOTER (aligned lists + no underline + smaller menu + payment strip) ====== -->
+<style>
+  :root {
+    --ft-bg: #fff;
+    --ft-text: #222;
+    --ft-muted: #666;
+    --ft-line: #e5e5e5;
+    --ft-accent: #000;
+    --ft-input-bg: #f7f7f7;
+  }
+
+  .ft-wrap {
+    background: var(--ft-bg);
+    color: var(--ft-text);
+    font-family: "Jost", "Segoe UI", sans-serif;
+    padding: 60px 20px 30px;
+    border-top: 1px solid var(--ft-line);
+  }
+  .ft-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 40px;
+  }
+  .ft-grid > div {
+    padding-right: 40px;
+    border-right: 1px solid var(--ft-line);
+  }
+  .ft-grid > div:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  /* Logo + newsletter */
+  .ft-logo img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin-bottom: 18px;
+  }
+  .ft-tagline {
+    font-size: 15px;
+    margin-bottom: 22px;
+    color: var(--ft-muted);
+  }
+
+  /* Newsletter stacked vertically */
+  .ft-newsletter {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin-bottom: 24px;
+    gap: 14px;
+  }
+  .ft-newsletter input {
+    padding: 12px 16px;
+    background: var(--ft-input-bg);
+    border: 1.8px solid var(--ft-line);
+    font-size: 14px;
+    outline: none;
+    border-radius: 30px;
+    font-family: inherit;
+    box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+  }
+  .ft-newsletter input:focus {
+    border-color: var(--ft-accent);
+    box-shadow: 0 0 6px var(--ft-accent);
+  }
+  .ft-newsletter button {
+    width: 100%;
+    border: none;
+    background: var(--ft-accent);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 0.15);
+    transition: background-color 0.25s ease;
+  }
+  .ft-newsletter button:hover,
+  .ft-newsletter button:focus {
+    background-color: #333;
+    outline: none;
+  }
+
+  /* Success message */
+  #footerSuccessMessage {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff8e1;
+    border: 1px solid #c89a2a;
+    border-radius: 4px;
+    color: #8a6414;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  /* Social */
+  .ft-social {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .ft-social a {
+    width: 28.6px;
+    height: 28.6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ft-text);
+    transition: opacity 0.25s;
+  }
+  .ft-social a img {
+    width: 28.6px;
+    height: 28.6px;
+    display: block;
+    object-fit: contain;
+  }
+
+  .ft-social a:hover {
+    opacity: 0.6;
+  }
+
+  /* Columns */
+  .ft-col h4 {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+  .ft-col h4:after {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--ft-text);
+    margin-top: 8px;
+  }
+
+  .ft-list {
+    list-style: none;
+    margin-top: 16px;
+    padding-left: 0;
+  }
+  .ft-list li {
+    margin: 7px 0;
+  }
+  .ft-list a {
+    font-size: 13.5px;
+    color: var(--ft-muted);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .ft-list a:hover {
+    color: var(--ft-text);
+  }
+
+  /* Contact */
+  .ft-contact p {
+    font-size: 15px;
+    color: var(--ft-muted);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  /* Bottom bar */
+  .ft-bottom-wrap {
+    max-width: 1200px;
+    margin: 35px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--ft-line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .ft-copy {
+    font-size: 13px;
+    color: var(--ft-muted);
+  }
+  .ft-payments img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+
+  @media (max-width: 992px) {
+    .ft-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .ft-grid > div {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
+  @media (max-width: 600px) {
+    .ft-grid {
+      grid-template-columns: 1fr;
+    }
+    .ft-logo img {
+      margin: 0 auto 18px;
+    }
+    .ft-tagline {
+      text-align: center;
+    }
+    .ft-social {
+      justify-content: center;
+    }
+    .ft-col h4 {
+      text-align: center;
+    }
+    .ft-col h4:after {
+      margin: 8px auto 0;
+    }
+    .ft-list {
+      text-align: center;
+    }
+    .ft-contact p {
+      text-align: center;
+    }
+    .ft-bottom-wrap {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+  }
+</style>
+
+<!-- Axios CDN -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<footer class="ft-wrap">
+  <div class="ft-grid">
+    <!-- COL 1 -->
+    <div>
+      <div class="ft-logo">
+        <img
+          src="https://img.clevup.in/438448/categorybannerkoushik-1751603976257.png"
+          alt="Peelkraft Logo"
+        />
+      </div>
+      <p class="ft-tagline">
+        Stay In Touch and don’t miss exclusive deals, tips & updates from
+        Peelkraft.
+      </p>
+
+      <form id="footerNewsletterForm" class="ft-newsletter" novalidate>
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Your phone number..."
+          aria-label="Phone number"
+          pattern="[0-9+ \-\(\)]{7,}"
+          title="Enter a valid phone number"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email address..."
+          aria-label="Email address"
+          required
+        />
+        <button aria-label="Subscribe" type="submit">Subscribe</button>
+      </form>
+
+      <div id="footerSuccessMessage" role="alert" aria-live="polite">
+        Thanks for subscribing! We’ll keep you posted.
+      </div>
+      <div class="ft-social">
+        <a
+          href="https://www.facebook.com/profile.php?id=61572717299720"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <img
+            src="https://storage.googleapis.com/shy-pub/444072/socialmediaicons4-1753771743915.png"
+            alt="Facebook Icon"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/peelkraft/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <img
+            src="https://storage.googleapis.com/shy-pub/444072/socialmediaicons3-1753771743372.png"
+            alt="Instagram Icon"
+          />
+        </a>
+        <a
+          href="https://www.youtube.com/peelkraft"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+        >
+          <img
+            src="https://storage.googleapis.com/shy-pub/444072/socialmediaicons1-1753771741271.png"
+            alt="YouTube Icon"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/company/peelkraft/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <img
+            src="https://storage.googleapis.com/shy-pub/444072/LINKEDIN-1753795637628.jpeg"
+            alt="LinkedIn Icon"
+          />
+        </a>
+        <!-- <a
+          href="https://twitter.com/peelkraft"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+        >
+          <img
+            src="https://storage.googleapis.com/shy-pub/444072/socialmediaicons2-1753771742189.png"
+            alt="Twitter Icon"
+          />
+        </a> -->
+      </div>
+    </div>
+
+    <!-- COL 2 -->
+    <div class="ft-col">
+      <h4>Company</h4>
+      <ul class="ft-list">
+        <li><a href="https://www.peelkraft.com/about-us">About us</a></li>
+        <li><a href="https://www.peelkraft.com/orders">My Orders</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="https://www.peelkraft.com/contact-us">Contact Us</a></li>
+        <li><a href="#">Track Orders</a></li>
+      </ul>
+    </div>
+
+    <!-- COL 3 -->
+    <div class="ft-col">
+      <h4>More Information</h4>
+      <ul class="ft-list">
+        <li>
+          <a href="https://www.peelkraft.com/pages/peelkraft-faqs">FAQ’s</a>
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/privacy-policy">Privacy Policy</a>
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/tos">Terms &amp; Conditions</a>
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/refund-policy"
+            >Return & Refund Policy</a
+          >
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/shipping-policy"
+            >Shipping Policy</a
+          >
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/payment-policy">Payment Policy</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- COL 4 -->
+    <div class="ft-col ft-contact">
+      <h4>Contact Us</h4>
+      <p>
+        A-9, 2nd Floor , Patparganj Industrial Area, New Delhi, <br />
+        Delhi - 110092.
+      </p>
+      <p>
+        Phone : +91 9052527678<br />
+        Email : hi@peelkraft.com<br />
+        Web&nbsp;&nbsp;: www.peelkraft.com
+      </p>
+    </div>
+  </div>
+
+  <div class="ft-bottom-wrap">
+    <div class="ft-copy">
+      © Copyright <span id="ftYear"></span> | Sands Marketing Rights Reserved
+    </div>
+
+    <div class="ft-payments">
+      <img
+        src="https://storage.googleapis.com/shy-pub/444072/Payment_Cards_Icons1-1753250579739.png"
+        alt="Payment Methods"
+      />
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("ftYear").textContent = new Date().getFullYear();
+
+  const form = document.getElementById("footerNewsletterForm");
+  const successMessage = document.getElementById("footerSuccessMessage");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+
+    const payload = { email: email, mobile: phone };
+
+    axios
+      .post(
+        "https://api.shoopy.in/api/v1/org/store/peelkraft/contact-us",
+        payload,
+        {
+          headers: {
+            Authorization:
+              "Basic b25hcHByLWJhY2tlbmQ6b25hcHByLWJhY2tlbmQtQnVLcVB4bURCM1ZSbg==",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(() => {
+        form.style.display = "none";
+        successMessage.style.display = "block";
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Something went wrong. Please try again!");
+      });
+  });
+</script>
