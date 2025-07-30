@@ -1,0 +1,372 @@
+<!-- ===== FAQ (Peelkraft) ===== -->
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
+  :root {
+    --faq-max-width: 900px;
+    --faq-primary: #000;
+    --faq-bg: #f9f9f9;
+    --faq-bg-hover: #eaeaea;
+    --faq-divider: #ddd;
+  }
+
+  #faq {
+    max-width: var(--faq-max-width);
+    margin: auto;
+    padding: 40px 20px;
+    font-family: "Jost", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  #faq h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--faq-primary);
+  }
+
+  #faq button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    background: var(--faq-bg);
+    color: var(--faq-primary);
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+    text-align: left;
+  }
+  #faq button:hover {
+    background: var(--faq-bg-hover);
+  }
+
+  #faq .arrow {
+    transition: transform 0.4s ease;
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+  }
+
+  #faq div[role="region"] {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    font-size: 1rem;
+    color: #444;
+    padding: 0 20px;
+    line-height: 1.45;
+  }
+
+  #faq hr {
+    border: none;
+    border-top: 1px solid var(--faq-divider);
+    margin: 0;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 600px) {
+    #faq h2 {
+      font-size: 2rem;
+    }
+    #faq button {
+      font-size: 1rem;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    #faq button .arrow {
+      margin-left: auto; /* keep arrow to the far right */
+    }
+    #faq div[role="region"] {
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: left; /* ensure answer is left aligned */
+    }
+  }
+</style>
+
+<section id="faq" aria-label="Frequently Asked Questions">
+  <h2>Frequently Asked Questions</h2>
+
+  <div>
+    <!-- 1 -->
+    <button aria-expanded="false" aria-controls="faq1" id="faq1-btn">
+      What products does Peelkraft offer?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq1" role="region" aria-labelledby="faq1-btn">
+      Peelkraft specializes in luxury and custom packaging solutions—collapsible
+      rigid boxes, luxury paper bags, stickers, tags, thank‑you cards, business
+      cards, money envelopes, chocolate boxes, and more.
+    </div>
+    <hr />
+
+    <!-- 2 -->
+    <button aria-expanded="false" aria-controls="faq2" id="faq2-btn">
+      Can I customize packaging with my brand name?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq2" role="region" aria-labelledby="faq2-btn">
+      Absolutely! We offer screen printing, gold foiling, UV/EP stickers, custom
+      sleeves and more. MOQ: 100 units for standard branding; 500 units for
+      fully customized boxes.
+    </div>
+    <hr />
+
+    <!-- 3 -->
+    <button aria-expanded="false" aria-controls="faq3" id="faq3-btn">
+      What is the lead time for orders?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq3" role="region" aria-labelledby="faq3-btn">
+      Standard orders typically take 7–10 business days. Bulk or fully
+      customized jobs may require 15–20 business days.
+    </div>
+    <hr />
+
+    <!-- 4 -->
+    <button aria-expanded="false" aria-controls="faq4" id="faq4-btn">
+      Do you offer sample boxes?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq4" role="region" aria-labelledby="faq4-btn">
+      Yes, samples are available on request. Sample charges apply and are
+      adjusted when you confirm a bulk order.
+    </div>
+    <hr />
+
+    <!-- 5 -->
+    <button aria-expanded="false" aria-controls="faq5" id="faq5-btn">
+      Do you ship across India?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq5" role="region" aria-labelledby="faq5-btn">
+      Yes, we deliver pan India. Shipping charges depend on order size and
+      location. Orders above ₹5,000 qualify for free shipping.
+    </div>
+    <hr />
+
+    <!-- 6 -->
+    <button aria-expanded="false" aria-controls="faq6" id="faq6-btn">
+      Is there a return or exchange policy?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq6" role="region" aria-labelledby="faq6-btn">
+      Products are made-to-order, so returns aren’t accepted. Exchanges are
+      allowed for manufacturing defects, shipping damage, or printing errors.
+    </div>
+    <hr />
+
+    <!-- 7 -->
+    <button aria-expanded="false" aria-controls="faq7" id="faq7-btn">
+      What is the minimum order quantity (MOQ)?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq7" role="region" aria-labelledby="faq7-btn">
+      MOQ is 100 pieces for standard branding/customization and 500 pieces for
+      fully customized packaging.
+    </div>
+    <hr />
+
+    <!-- 8 -->
+    <button aria-expanded="false" aria-controls="faq8" id="faq8-btn">
+      How can I place an order?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq8" role="region" aria-labelledby="faq8-btn">
+      Contact us via the website form, WhatsApp, or email. After finalizing
+      requirements, we share a quotation and begin production once confirmed.
+    </div>
+    <hr />
+
+    <!-- 9 -->
+    <button aria-expanded="false" aria-controls="faq9" id="faq9-btn">
+      What payment methods are accepted?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq9" role="region" aria-labelledby="faq9-btn">
+      UPI (Google Pay, PhonePe, Paytm), bank transfers (NEFT/RTGS/IMPS),
+      credit/debit cards (on request), and cash for in-person orders. Orders are
+      confirmed after payment receipt.
+    </div>
+    <hr />
+
+    <!-- 10 -->
+    <button aria-expanded="false" aria-controls="faq10" id="faq10-btn">
+      Do you provide design support?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq10" role="region" aria-labelledby="faq10-btn">
+      Yes, we assist with layouts, placements, and branding elements so your
+      packaging reflects your brand perfectly.
+    </div>
+    <hr />
+
+    <!-- 11 -->
+    <button aria-expanded="false" aria-controls="faq11" id="faq11-btn">
+      Who is the parent company of Peelkraft?
+      <span class="arrow">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
+    </button>
+    <div id="faq11" role="region" aria-labelledby="faq11-btn">
+      Peelkraft is a brand by Sands Marketing, established in 1985, with decades
+      of experience in printing and packaging.
+    </div>
+    <hr />
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll("#faq button");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        const answer = document.getElementById(
+          button.getAttribute("aria-controls")
+        );
+        const arrow = button.querySelector(".arrow");
+
+        if (!expanded) {
+          button.setAttribute("aria-expanded", "true");
+          answer.style.maxHeight = answer.scrollHeight + "8px";
+          answer.style.paddingTop = "10px";
+          answer.style.paddingBottom = "10px";
+          arrow.style.transform = "rotate(180deg)";
+        } else {
+          button.setAttribute("aria-expanded", "false");
+          answer.style.maxHeight = null;
+          answer.style.paddingTop = "0";
+          answer.style.paddingBottom = "0";
+          arrow.style.transform = "rotate(0deg)";
+        }
+      });
+    });
+  });
+</script>

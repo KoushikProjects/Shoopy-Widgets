@@ -1,0 +1,341 @@
+<!-- ====== FOOTER (aligned lists + no underline + smaller menu + payment strip) ====== -->
+<style>
+  :root {
+    --ft-bg: #fff;
+    --ft-text: #222;
+    --ft-muted: #666;
+    --ft-line: #e5e5e5;
+    --ft-accent: #000;
+    --ft-input-bg: #f7f7f7;
+  }
+
+  .ft-wrap {
+    background: var(--ft-bg);
+    color: var(--ft-text);
+    font-family: "Jost", "Segoe UI", sans-serif;
+    padding: 60px 20px 30px;
+    border-top: 1px solid var(--ft-line);
+  }
+  .ft-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 40px;
+  }
+  .ft-grid > div {
+    padding-right: 40px;
+    border-right: 1px solid var(--ft-line);
+  }
+  .ft-grid > div:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  /* Logo + newsletter */
+  .ft-logo img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin-bottom: 18px;
+  }
+  .ft-tagline {
+    font-size: 15px;
+    margin-bottom: 22px;
+    color: var(--ft-muted);
+  }
+  .ft-newsletter {
+    display: flex;
+    max-width: 320px;
+    margin-bottom: 24px;
+  }
+  .ft-newsletter input {
+    flex: 1;
+    padding: 12px 14px;
+    background: var(--ft-input-bg);
+    border: 1px solid var(--ft-line);
+    font-size: 14px;
+    outline: none;
+  }
+  .ft-newsletter button {
+    width: 48px;
+    border: none;
+    background: var(--ft-accent);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.25s;
+  }
+  .ft-newsletter button:hover {
+    opacity: 0.85;
+  }
+
+  /* Social */
+  .ft-social {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .ft-social a {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ft-text);
+    transition: opacity 0.25s;
+  }
+  .ft-social a:hover {
+    opacity: 0.6;
+  }
+  .ft-social svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Columns */
+  .ft-col h4 {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+  .ft-col h4:after {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--ft-text);
+    margin-top: 8px;
+  }
+
+  .ft-list {
+    list-style: none;
+    margin-top: 16px;
+    padding-left: 0; /* flush-left like Contact Us */
+  }
+  .ft-list li {
+    margin: 7px 0;
+  } /* tighter & smaller */
+  .ft-list a {
+    font-size: 13.5px; /* smaller menu size */
+    color: var(--ft-muted);
+    text-decoration: none; /* remove underline */
+    transition: color 0.25s;
+  }
+  .ft-list a:hover {
+    color: var(--ft-text);
+  }
+
+  /* Contact */
+  .ft-contact p {
+    font-size: 15px;
+    color: var(--ft-muted);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  /* Bottom bar */
+  .ft-bottom-wrap {
+    max-width: 1200px;
+    margin: 35px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--ft-line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .ft-copy {
+    font-size: 13px;
+    color: var(--ft-muted);
+  }
+  .ft-payments img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+
+  @media (max-width: 992px) {
+    .ft-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .ft-grid > div {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
+  @media (max-width: 600px) {
+    .ft-grid {
+      grid-template-columns: 1fr;
+    }
+    .ft-logo img {
+      margin: 0 auto 18px;
+    }
+    .ft-tagline {
+      text-align: center;
+    }
+    .ft-social {
+      justify-content: center;
+    }
+    .ft-col h4 {
+      text-align: center;
+    }
+    .ft-col h4:after {
+      margin: 8px auto 0;
+    }
+    .ft-list {
+      text-align: center;
+    }
+    .ft-contact p {
+      text-align: center;
+    }
+    .ft-bottom-wrap {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+  }
+</style>
+
+<footer class="ft-wrap">
+  <div class="ft-grid">
+    <!-- COL 1 -->
+    <div>
+      <div class="ft-logo">
+        <img
+          src="https://img.clevup.in/438448/categorybannerkoushik-1751603976257.png"
+          alt="Peelkraft Logo"
+        />
+      </div>
+      <p class="ft-tagline">
+        Stay In Touch and don’t miss exclusive deals, tips & updates from
+        Peelkraft.
+      </p>
+
+      <form class="ft-newsletter" onsubmit="footerSubscribe(event)">
+        <input type="email" placeholder="Your email address..." required />
+        <button aria-label="Subscribe">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+
+      <div class="ft-social">
+        <a href="#"
+          ><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.4.6-1.4 1.3V12h2.4l-.4 3h-2v7A10 10 0 0 0 22 12z"
+            /></svg
+        ></a>
+        <a href="#"
+          ><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19 0H5C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zm-7 18c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7zm7.5-12.5c0 .8-.7 1.5-1.5 1.5S16.5 6.3 16.5 5.5 17.2 4 18 4s1.5.7 1.5 1.5z"
+            />
+            <circle cx="12" cy="11" r="3.2" /></svg
+        ></a>
+        <a href="#"
+          ><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M23.5 6.2c-.8.3-1.6.6-2.5.7.9-.6 1.6-1.5 1.9-2.6-.9.6-1.9 1-3 1.2a4.28 4.28 0 0 0-7.3 3.9c-3.6-.2-6.7-1.9-8.8-4.6A4.28 4.28 0 0 0 4 9c-.7 0-1.4-.2-2-.5v.1a4.29 4.29 0 0 0 3.4 4.2c-.3.1-.7.2-1.1.2-.3 0-.5 0-.8-.1a4.29 4.29 0 0 0 4 3c-2.6 2-5.9 2.9-9.2 2.5A12.08 12.08 0 0 0 8 21c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.6-1.4 1.9-2.3z"
+            /></svg
+        ></a>
+        <a href="#"
+          ><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9A4.5 4.5 0 0 1 16.5 21h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3zm0-3A7.5 7.5 0 0 0 0 7.5v9A7.5 7.5 0 0 0 7.5 24h9A7.5 7.5 0 0 0 24 16.5v-9A7.5 7.5 0 0 0 16.5 0h-9zM12 6.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0-2A7.5 7.5 0 1 0 19.5 12 7.51 7.51 0 0 0 12 4.5zm6.8-.8a1.3 1.3 0 1 1-1.3 1.3 1.31 1.31 0 0 1 1.3-1.3z"
+            /></svg
+        ></a>
+      </div>
+    </div>
+
+    <!-- COL 2 -->
+    <div class="ft-col">
+      <h4>Company</h4>
+      <ul class="ft-list">
+        <li><a href="https://www.peelkraft.com/about-us">About us</a></li>
+        <li><a href="https://www.peelkraft.com/orders">My Orders</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="https://www.peelkraft.com/contact-us">Contact Us</a></li>
+        <li><a href="#">Track Orders</a></li>
+      </ul>
+    </div>
+
+    <!-- COL 3 -->
+    <div class="ft-col">
+      <h4>More Information</h4>
+      <ul class="ft-list">
+        <li>
+          <a href="https://www.peelkraft.com/pages/peelkraft-faqs">FAQ’s</a>
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/privacy-policy">Privacy Policy</a>
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/tos">Terms &amp; Conditions</a>
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/refund-policy"
+            >Return & Refund Policy</a
+          >
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/shipping-policy"
+            >Shipping Policy</a
+          >
+        </li>
+        <li>
+          <a href="https://www.peelkraft.com/payment-policy">Payment Policy</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- COL 4 -->
+    <div class="ft-col ft-contact">
+      <h4>Contact Us</h4>
+      <p>
+        A-9, 2nd Floor , Patparganj Industrial Area, New Delhi, <br />Delhi -
+        110092.
+      </p>
+      <p>
+        Phone : +91 9052527678<br />
+        Email : hi@peelkraft.com<br />
+        Web&nbsp;&nbsp;: www.peelkraft.com
+      </p>
+    </div>
+  </div>
+
+  <div class="ft-bottom-wrap">
+    <div class="ft-copy">
+      © Copyright <span id="ftYear"></span> | Sands Marketing Rights Reserved
+    </div>
+
+    <div class="ft-payments">
+      <img
+        src="https://storage.googleapis.com/shy-pub/444072/Payment_Cards_Icons1-1753250579739.png"
+        alt="Payment Methods"
+      />
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("ftYear").textContent = new Date().getFullYear();
+  function footerSubscribe(e) {
+    e.preventDefault();
+    const input = e.target.querySelector("input");
+    alert("Subscribed: " + input.value); // replace with your API call
+    input.value = "";
+  }
+</script>

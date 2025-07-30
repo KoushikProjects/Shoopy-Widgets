@@ -1,0 +1,189 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
+
+  .category-grid {
+    display: grid;
+    gap: 24px;
+    padding: 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1024px) {
+    .category-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .category-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .category-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .category-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .category-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  .category-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+  }
+  .category-item:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Coming Soon bar */
+  .category-item.coming-soon .ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 32px;
+    background: #f31628;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 32px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: #f31628;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+  }
+  .category-item:hover .overlay {
+    transform: translateY(0);
+  }
+  .overlay h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .overlay p {
+    margin: 0 0 16px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .shop-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 24px;
+    transition: background 0.3s ease, color 0.3s ease;
+    z-index: 1;
+  }
+  .shop-btn:hover {
+    background: #fff;
+    color: #f31628;
+  }
+  .pk-crbb {
+    font-size: clamp(20px, 5vw, 52px);
+    text-align: center;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--pk-dark);
+    margin: 0 0 8px;
+  }
+</style>
+<h2 class="pk-crbb">Browse categories</h2>
+<div class="category-grid">
+  <!-- First item: no ribbon -->
+  <div class="category-item">
+    <img
+      src="https://storage.googleapis.com/shy-pub/438448/categorybannerkoushik24-1753342127451.jpeg"
+      alt="Flat Boxes"
+    />
+    <div class="overlay">
+      <h3>Flat Boxes</h3>
+      <p>Get a free customized sticker with every order for perfect gifting.</p>
+      <a
+        href="https://www.peelkraft.com/categories/flat-boxes-438448"
+        class="shop-btn"
+        >Shop Now</a
+      >
+    </div>
+  </div>
+
+  <!-- Subsequent items: Coming Soon bar -->
+  <div class="category-item coming-soon">
+    <div class="ribbon">Coming Soon</div>
+    <img
+      src="https://storage.googleapis.com/shy-pub/444072/54-1753096435869.png"
+      alt="Business Cards"
+    />
+    <div class="overlay">
+      <h3>Business Cards</h3>
+      <p>Premium finishes & fast turnaround for a lasting first impression.</p>
+      <!-- <a
+        href="https://www.peelkraft.com/categories/business-cards"
+        class="shop-btn"
+        >Shop Now</a
+      > -->
+    </div>
+  </div>
+
+  <div class="category-item coming-soon">
+    <div class="ribbon">Coming Soon</div>
+    <img
+      src="https://storage.googleapis.com/shy-pub/444072/55-1753096436618.png"
+      alt="Chocolate Boxes"
+    />
+    <div class="overlay">
+      <h3>Chocolate Boxes</h3>
+      <p>Secure, elegant packaging—ideal for gifts, events & retail.</p>
+      <!-- <a
+        href="https://www.peelkraft.com/categories/chocolate-box-438448"
+        class="shop-btn"
+        >Shop Now</a
+      >-->
+    </div>
+  </div>
+
+  <div class="category-item coming-soon">
+    <div class="ribbon">Coming Soon</div>
+    <img
+      src="https://storage.googleapis.com/shy-pub/444072/56-1753096437239.png"
+      alt="Paper Bags"
+    />
+    <div class="overlay">
+      <h3>Paper Bags</h3>
+      <p>Stylish, sturdy and fully customizable—perfect for every occasion.</p>
+      <!-- <a
+        href="https://www.peelkraft.com/categories/paper-bags-438448"
+        class="shop-btn"
+        >Shop Now</a
+      > -->
+    </div>
+  </div>
+
+  <!-- Add more items similarly -->
+</div>

@@ -1,0 +1,286 @@
+<!-- ========== Peelkraft Testimonial Slider (Manual Only, Fixed Scroll) ========== -->
+<style>
+  :root {
+    --pk-primary: #000;
+    --pk-accent: #c89a63;
+    --pk-accent-light: #f3e8d9;
+    --pk-bg: #fff;
+  }
+
+  h2.pk-title {
+    text-align: center;
+    color: var(--pk-primary);
+    font-size: 34px;
+    margin: 40px 0 0;
+  }
+  @media (max-width: 768px) {
+    h2.pk-title {
+      font-size: 30px;
+      font-weight: 700;
+    }
+  }
+  @media (max-width: 480px) {
+    h2.pk-title {
+      font-size: 27px;
+      font-weight: 700;
+    }
+  }
+
+  .pk-testimonial-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+    background: var(--pk-bg);
+  }
+
+  .pk-arrow {
+    background: rgba(255, 255, 255, 0.75);
+    color: var(--pk-primary);
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+  }
+  .pk-arrow:hover {
+    background: var(--pk-primary);
+    color: #fff;
+    transform: scale(1.1);
+  }
+  .pk-arrow.disabled,
+  .pk-arrow.disabled:hover {
+    opacity: 0.35;
+    cursor: default;
+    transform: none;
+    background: rgba(255, 255, 255, 0.5);
+    color: #777;
+    pointer-events: none;
+  }
+  .pk-arrow.left {
+    position: absolute;
+    left: 10px;
+  }
+  .pk-arrow.right {
+    position: absolute;
+    right: 10px;
+  }
+
+  .pk-wrapper {
+    display: flex;
+    gap: 45px;
+    padding: 80px 60px;
+    max-width: 1300px;
+    overflow: hidden; /* hide native scroll */
+  }
+
+  .pk-card {
+    flex: 0 0 230px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
+  }
+  .pk-card.active {
+    transform: scale(1.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    background: var(--pk-accent-light);
+    z-index: 2;
+  }
+
+  .pk-avatar {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    border: 3px solid var(--pk-accent);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("https://storage.googleapis.com/shy-pub/444072/wmremove-transformed-1753198239143.jpeg");
+  }
+
+  .pk-stars {
+    color: #ffbf00;
+    margin-bottom: 10px;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .pk-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+  }
+  .pk-name {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--pk-primary);
+  }
+
+  @media (max-width: 768px) {
+    .pk-card {
+      flex-basis: 200px;
+    }
+    .pk-arrow {
+      width: 40px;
+      height: 40px;
+      font-size: 22px;
+    }
+  }
+</style>
+
+<h2 class="pk-title">What Our Peelkraft Clients Say</h2>
+<div class="pk-testimonial-section">
+  <button class="pk-arrow left" id="pkPrev">&#10094;</button>
+
+  <div class="pk-wrapper" id="pkWrapper">
+    <!-- 1 -->
+    <div class="pk-card">
+      <div class="pk-avatar"></div>
+      <div class="pk-stars">★★★★★</div>
+      <div class="pk-text">
+        “Thank you Peelkraft for such lovely Ghewar boxes. Everything from the
+        color and outline came out perfectly. Commendable service, lovely
+        work—definitely recommend.”
+      </div>
+      <div class="pk-name">– Anchal Sawani (Founder, Halwaipop)</div>
+    </div>
+    <!-- 2 -->
+    <div class="pk-card">
+      <div class="pk-avatar"></div>
+      <div class="pk-stars">★★★★★</div>
+      <div class="pk-text">
+        “The quality of the boxes from Peelkraft is unmatched. Our products
+        finally have packaging that reflects our brand’s luxury feel.”
+      </div>
+      <div class="pk-name">– Shilpa Shetye (Founder, Chocodecor)</div>
+    </div>
+    <!-- 3 -->
+    <div class="pk-card">
+      <div class="pk-avatar"></div>
+      <div class="pk-stars">★★★★★</div>
+      <div class="pk-text">
+        “Thank you for the beautiful stickers. Highly recommend!”
+      </div>
+      <div class="pk-name">– Aishwarya (Founder, Varaisha)</div>
+    </div>
+    <!-- 4 -->
+    <div class="pk-card">
+      <div class="pk-avatar"></div>
+      <div class="pk-stars">★★★★★</div>
+      <div class="pk-text">
+        “They understood exactly what we needed and delivered on time. Our
+        wedding hampers looked stunning thanks to their elegant packaging.”
+      </div>
+      <div class="pk-name">– Simran Khurana (Event Planner)</div>
+    </div>
+    <!-- 5 -->
+    <div class="pk-card">
+      <div class="pk-avatar"></div>
+      <div class="pk-stars">★★★★★</div>
+      <div class="pk-text">
+        “Every detail was perfect—from the structure of the collapsible box to
+        the finish. Truly impressed!”
+      </div>
+      <div class="pk-name">– Megha Jain</div>
+    </div>
+    <!-- 6 -->
+    <div class="pk-card">
+      <div class="pk-avatar"></div>
+      <div class="pk-stars">★★★★★</div>
+      <div class="pk-text">
+        “Got customized Rakhi stickers from Peelkraft. The gumming and print
+        quality were great. Would order my logo stickers also.”
+      </div>
+      <div class="pk-name">– Deeksha (Founder, Glaze n Gourmet)</div>
+    </div>
+    <!-- 7 -->
+    <div class="pk-card">
+      <div class="pk-avatar"></div>
+      <div class="pk-stars">★★★★★</div>
+      <div class="pk-text">
+        “Liked the sticker and cake box quality. Gold foiling is very good.”
+      </div>
+      <div class="pk-name">– Dee’s Bake Studio</div>
+    </div>
+    <!-- 8 -->
+    <div class="pk-card">
+      <div class="pk-avatar"></div>
+      <div class="pk-stars">★★★★★</div>
+      <div class="pk-text">
+        “Thank you for the cake boxes. They are very good in quality and look
+        very premium as well as presentable.”
+      </div>
+      <div class="pk-name">– Homebakery_bymonisha</div>
+    </div>
+    <!-- 9 -->
+    <div class="pk-card">
+      <div class="pk-avatar"></div>
+      <div class="pk-stars">★★★★★</div>
+      <div class="pk-text">“Absolutely good quality work.”</div>
+      <div class="pk-name">– Varshni (Founder, bluebellcreations)</div>
+    </div>
+  </div>
+
+  <button class="pk-arrow right" id="pkNext">&#10095;</button>
+</div>
+
+<script>
+  const wrapper = document.getElementById("pkWrapper");
+  const cards = [...wrapper.querySelectorAll(".pk-card")];
+  const prevBtn = document.getElementById("pkPrev");
+  const nextBtn = document.getElementById("pkNext");
+
+  const GAP = 45; // same as CSS gap
+  let current = 0;
+
+  // width incl. gap
+  function cardStep() {
+    return cards[0].getBoundingClientRect().width + GAP;
+  }
+
+  function setActive(i) {
+    cards.forEach((c) => c.classList.remove("active"));
+    cards[i].classList.add("active");
+
+    // move track
+    const step = cardStep();
+    wrapper.scrollTo({ left: step * i, behavior: "smooth" });
+
+    // toggle arrows
+    prevBtn.classList.toggle("disabled", i === 0);
+    nextBtn.classList.toggle("disabled", i === cards.length - 1);
+  }
+
+  function go(dir) {
+    current = Math.min(Math.max(current + dir, 0), cards.length - 1);
+    setActive(current);
+  }
+
+  prevBtn.addEventListener("click", () => go(-1));
+  nextBtn.addEventListener("click", () => go(1));
+
+  // If user drags/scrolls manually, snap to nearest card after pause
+  let timer;
+  wrapper.addEventListener("scroll", () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      const step = cardStep();
+      current = Math.round(wrapper.scrollLeft / step);
+      setActive(current);
+    }, 120);
+  });
+
+  window.addEventListener("load", () => setActive(current));
+</script>

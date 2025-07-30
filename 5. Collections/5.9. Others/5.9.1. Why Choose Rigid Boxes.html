@@ -1,0 +1,221 @@
+<!-- ========== WHY CHOOSE (Horizontal + Card Benefits) ========== -->
+<style>
+  :root {
+    --pk-red: #de2429;
+    --pk-dark: #222;
+    --pk-text: #444;
+    --pk-bg: #fff;
+    --pk-light: #f7f7f7;
+    --pk-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    --pk-shadow-hover: 0 8px 26px rgba(0, 0, 0, 0.12);
+  }
+
+  .pk-crb {
+    background: var(--pk-bg);
+    padding: 70px 20px;
+    font-family: "Jost", "Segoe UI", sans-serif;
+    color: var(--pk-text);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pk-crb h2 {
+    font-size: clamp(30px, 5vw, 52px);
+    text-align: center;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--pk-dark);
+    margin: 0 0 8px;
+  }
+  .pk-crb h3 {
+    text-align: center;
+    color: var(--pk-red);
+    font-size: clamp(24px, 4vw, 40px);
+    margin: 0 0 50px;
+    font-weight: 700;
+  }
+
+  /* -------- BENEFIT CARDS -------- */
+  .pk-reasons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px;
+    margin: 0 0 60px;
+    padding: 0;
+    list-style: none;
+  }
+  .pk-reasons li {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: var(--pk-shadow);
+    padding: 26px 22px 24px;
+    position: relative;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .pk-reasons li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 14px 14px 0 0;
+    background: var(--pk-red);
+  }
+  .pk-reasons li:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--pk-shadow-hover);
+  }
+  .pk-reasons li h4 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: var(--pk-dark);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .pk-reasons li p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .pk-steps-title {
+    text-align: center;
+    color: var(--pk-red);
+    font-size: clamp(22px, 3.5vw, 32px);
+    margin-bottom: 32px;
+    font-weight: 700;
+  }
+
+  /* -------- STEPS ROW -------- */
+  .pk-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .pk-step {
+    text-align: center;
+  }
+  .pk-step img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto 14px;
+    background: var(--pk-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .pk-step h5 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    color: var(--pk-dark);
+    font-weight: 600;
+  }
+  .pk-step small {
+    display: block;
+    margin-bottom: 4px;
+    color: #888;
+    font-size: 13px;
+  }
+  .pk-step em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--pk-dark);
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  /* -------- RESPONSIVE -------- */
+  @media (max-width: 1024px) {
+    .pk-reasons {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .pk-steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .pk-reasons {
+      grid-template-columns: 1fr;
+    }
+    .pk-steps {
+      grid-template-columns: 1fr;
+    }
+    .pk-step img {
+      max-width: 140px;
+    }
+  }
+</style>
+
+<section class="pk-crb" id="collapsible-boxes">
+  <h2>Why Choose</h2>
+  <h3>Collapsible Rigid Boxes?</h3>
+
+  <!-- BENEFIT CARDS -->
+  <ul class="pk-reasons">
+    <li>
+      <h4>Space & Shipping Savings</h4>
+      <p>Premium rigid look, ships flat—cuts logistics & warehousing costs.</p>
+    </li>
+    <li>
+      <h4>Luxury Unboxing Experience</h4>
+      <p>Magnetic closures, velvet-touch, foil, embossing—still collapsible.</p>
+    </li>
+    <li>
+      <h4>Quick & Easy Assembly</h4>
+      <p>Folds into shape in seconds—no glue or tools needed.</p>
+    </li>
+    <li>
+      <h4>Customizable & Brandable</h4>
+      <p>
+        Any size, print, texture & finish (foil, UV, matte/gloss). Inserts
+        available.
+      </p>
+    </li>
+    <li>
+      <h4>Eco‑friendly & Reusable</h4>
+      <p>Recyclable materials; customers reuse for storage & gifting.</p>
+    </li>
+  </ul>
+
+  <!-- STEPS -->
+  <div class="pk-steps-title">Assembly Steps (as shown above)</div>
+  <div class="pk-steps">
+    <div class="pk-step">
+      <img
+        src="https://storage.googleapis.com/shy-pub/444072/collapsiblerigidboxes1-1753260418871.jpeg"
+        alt="Press panels"
+      />
+      <h5>1. Press</h5>
+      <small>Easy alignment press</small>
+      <em>Flat-packed panels with pre-scored fold lines</em>
+    </div>
+    <div class="pk-step">
+      <img
+        src="https://storage.googleapis.com/shy-pub/444072/collapsiblerigidboxes1-1753260419474.jpeg"
+        alt="Unfold box"
+      />
+      <h5>2. Unfold</h5>
+      <small>Tear off the corner sticker</small>
+      <em>Fold along scored edges to create base</em>
+    </div>
+    <div class="pk-step">
+      <img
+        src="https://storage.googleapis.com/shy-pub/444072/collapsiblerigidboxes1-1753260420287.jpeg"
+        alt="Merge corners"
+      />
+      <h5>3. Merge</h5>
+      <small>Paste and fix the four corners</small>
+      <em>Fold and crease side panels upward</em>
+    </div>
+    <div class="pk-step">
+      <img
+        src="https://storage.googleapis.com/shy-pub/444072/collapsiblerigidboxes1-1753260420752.jpeg"
+        alt="Finish with lid"
+      />
+      <h5>4. Finish</h5>
+      <small>Close the flap</small>
+      <em>Close lid with magnetic flap for a secure, rigid structure</em>
+    </div>
+  </div>
+</section>
