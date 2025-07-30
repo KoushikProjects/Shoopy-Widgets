@@ -1,0 +1,180 @@
+<style>
+  :root {
+    --theme-green: #3e8e16;
+    --bg-light: #f5fbf0;
+    --text-dark: #222;
+  }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+  }
+  .why-choose-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px;
+    padding-top: 85px;
+    padding-bottom: 80px;
+  }
+  .text-content {
+    flex: 1;
+  }
+  .text-content h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .text-content h2 i {
+    color: var(--theme-green);
+    font-size: 1.8rem;
+  }
+  .text-content h4 {
+    color: var(--theme-green);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .text-content p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+  .text-content .btn {
+    background-color: var(--theme-green);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .text-content .btn:hover {
+    background-color: #7da816;
+  }
+  .cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  /* 
+      .card {
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        cursor: pointer;
+      }
+
+      .card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      } */
+
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 15px 1px 1px 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+  .card-icon {
+    /* font-size: 36px; */
+    color: var(--theme-green);
+    margin-bottom: 10px;
+  }
+  .card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .card p {
+    font-size: 0.85rem;
+    color: #555;
+  }
+  @media (min-width: 900px) {
+    .why-choose-section {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    .cards-wrapper {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px 20px;
+    }
+    .card:nth-child(odd) {
+      transform: translateY(-20px);
+    }
+    .card:nth-child(even) {
+      transform: translateY(20px);
+    }
+  }
+</style>
+
+<section class="why-choose-section">
+  <div class="cards-wrapper">
+    <div class="card">
+      <div class="card-icon">
+        <img
+          src="https://storage.googleapis.com/shy-pub/437767/onlyayurvedakoushik-1752032526166.jpeg"
+          width="220px"
+        />
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <img
+          src="https://storage.googleapis.com/shy-pub/437767/onlyayurvedakoushik2-1752032525434.jpeg"
+          width="220px"
+        />
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <img
+          src="https://storage.googleapis.com/shy-pub/437767/onlyayurvedakoushik3-1752032524854.jpeg"
+          width="220px"
+        />
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <img
+          src="https://storage.googleapis.com/shy-pub/437767/onlyayurvedakoushik4-1752032524136.jpeg"
+          width="220px"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="text-content">
+    <h2>Why Choose Only Ayurved</h2>
+    <h4>Your Wellness, Naturally</h4>
+    <p>
+      Experience authentic Ayurvedic care—crafted with pure, herbal ingredients
+      that address the root causes and promote lifelong balance.
+    </p>
+    <p>
+      Our products are developed in collaboration with expert Vaidyas and go
+      through rigorous quality testing to ensure safety and efficacy.
+    </p>
+    <p>
+      Whether you seek digestive support, immune care, stress relief—or everyday
+      vitality—Only Ayurved offers personalized solutions grounded in ancient
+      science.
+    </p>
+    <button class="btn">Shop Now</button>
+  </div>
+</section>
